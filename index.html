@@ -355,64 +355,74 @@
  border: none; cursor: pointer; border-radius: 7px; color: white; font-size: larger;" type="submit">Login</button>
       </div>
 
-      <div style="flex: 1; display: flex; justify-content: center; align-items: center; padding: 20px;">
-        <table>
-           <thead>
+    <div style="flex: 1; padding: 20px; position: relative;">
+      <!-- Blurred Table -->
+      <div style="filter: blur(2px); opacity: 0.5; height: 100%; overflow: auto;">
+        <table style="width: 100%;">
+          <!-- Keep your existing table content -->
+          <thead>
             <tr>
               <th>City</th>
               <th>Aqi</th>
             </tr>
-           </thead>
-             <tbody>
-                 <tr>
-                  <td></td>
-                  <td></td>
-                 </tr>
-                 <tr>
-                  <td></td>
-                  <td></td>
-                 </tr>
-                 <tr>
-                  <td></td>
-                  <td></td>
-                 </tr>
-                 <tr>
-                  <td></td>
-                  <td></td>
-                 </tr>
-                 <tr>
-                  <td></td>
-                  <td></td>
-                 </tr>
-                 <tr>
-                  <td></td>
-                  <td></td>
-                 </tr>
-                 <tr>
-                  <td></td>
-                  <td></td>
-                 </tr>
-                 <tr>
-                  <td></td>
-                  <td></td>
-                 </tr>
-                 <tr>
-                  <td></td>
-                  <td></td>
-                 </tr>
-                 <tr>
-                  <td></td>
-                  <td></td>
-                 </tr>
-                 <tr>
-                  <td></td>
-                  <td></td>
-                 </tr>
-
-             </tbody>
-
+          </thead>
+          <tbody>
+            <!-- Your table rows -->
+            <tr>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
         </table>
       </div>
+    
+      <!-- Overlay Message -->
+      <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); 
+                  background: rgba(255, 255, 255, 0.9); padding: 20px; border-radius: 8px;
+                  box-shadow: 0 2px 10px rgba(0,0,0,0.1); text-align: center; z-index: 2;">
+        <h3 style="padding: 10px; margin: 0; color: tomato;">Please login first</h3>
+      </div>
+    </div>
     </div>
   </div>
 
