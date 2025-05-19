@@ -15,6 +15,14 @@ if ($connection->connect_error) {
 $ids = implode(",", array_map('intval', $selectedIds));
 $query = "SELECT city, country, aqi FROM info WHERE id IN ($ids)";
 $result = $connection->query($query);
+
+
+//added
+
+$bgColor = "#ffffff"; // Default background
+if (isset($_COOKIE['favColor'])) {
+    $bgColor = htmlspecialchars($_COOKIE['favColor']);
+}
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +32,7 @@ $result = $connection->query($query);
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(to right, #e1f5fe, #f3e5f5);
+            background-color: <?= $bgColor ?>;
             margin: 0;
             padding: 0;
         }

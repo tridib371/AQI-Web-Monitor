@@ -122,6 +122,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 ?>
 
 
+<script>
+    function confirmAction() {
+        alert("Information has been confirmed");
+
+        // Get selected color from embedded PHP
+        var favoriteColor = "<?= $color ?>";
+
+        // Set cookie for 30 days
+        var expiry = new Date();
+        expiry.setTime(expiry.getTime() + (30 * 24 * 60 * 60 * 1000));
+        document.cookie = "favColor=" + favoriteColor + ";expires=" + expiry.toUTCString() + ";path=/";
+    }
+</script>
+
+
 
 </body>
 </html>
