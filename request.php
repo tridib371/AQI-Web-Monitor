@@ -22,10 +22,51 @@ $result = $connection->query($query);
             padding: 0;
         }
 
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .left-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .top-bar button {
+            padding: 10px 16px;
+            border: none;
+            border-radius: 6px;
+            font-size: 15px;
+            cursor: pointer;
+            font-weight: bold;
+            color: white;
+            background-color: #5c6bc0;
+            transition: background 0.2s;
+        }
+
+        .top-bar button:hover {
+            background-color: #3f51b5;
+        }
+
+        .avatar {
+            display: none;
+            margin-left: 10px;
+        }
+
+        .avatar img {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: 2px solid #3f51b5;
+        }
+
         .container {
             max-width: 600px;
             background: white;
-            margin: 50px auto;
+            margin: 20px auto;
             padding: 30px;
             border-radius: 12px;
             box-shadow: 0 0 20px rgba(0,0,0,0.1);
@@ -72,8 +113,19 @@ $result = $connection->query($query);
     </style>
 </head>
 <body>
+
+    <div class="top-bar">
+        <div class="left-controls">
+            <button onclick="toggleAvatar()">Username</button>
+            <div class="avatar" id="avatarBox">
+                <img src="https://i.pravatar.cc/100?img=3" alt="User Avatar">
+            </div>
+        </div>
+        <button onclick="logout()">Logout</button>
+    </div>
+
     <div class="container">
-        <h2>Select Exactly 10 Cities</h2>
+        <h2>Select Between 1 to 10 Cities</h2>
         <form action="showAqi.php" method="POST" onsubmit="return validateForm();">
             <?php while ($row = $result->fetch_assoc()) : ?>
                 <label class="city-item">
@@ -88,12 +140,22 @@ $result = $connection->query($query);
     <script>
         function validateForm() {
             const checkboxes = document.querySelectorAll('input[name="cities[]"]:checked');
-            if (checkboxes.length !== 10) {
-                alert("Please select exactly 10 cities.");
+            if (checkboxes.length === 0 || checkboxes.length > 10) {
+                alert("Please select between 1 and 10 cities.");
                 return false;
             }
             return true;
         }
+
+        function toggleAvatar() {
+            const avatar = document.getElementById("avatarBox");
+            avatar.style.display = avatar.style.display === "none" || avatar.style.display === "" ? "block" : "none";
+        }
+
+        function logout() {
+            window.location.href = "index.html";
+        }
     </script>
+
 </body>
 </html>
