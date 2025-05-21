@@ -13,11 +13,22 @@ if (isset($_POST['action']) && $_POST['action'] === 'login') {
     $pass = $_POST['pass'];
 
     $result = $conn->query("SELECT * FROM user WHERE Email='$email'");
+
     if ($result && $result->num_rows === 1) {
+        
         $row = $result->fetch_assoc();
+ 
+
+        //updated
         if (password_verify($pass, $row['Password'])) {
+            $_SESSION['email'] = $row['Email']; // Store user email in session
             echo 'success';
-        } else {
+        }
+        
+
+
+        
+        else {
             echo 'fail';
         }
     } else {
@@ -35,9 +46,12 @@ if (isset($_POST['confirm'])) {
     $country = $_POST['country'];
     $gender = $_POST['gender'];
     $opinion = $_POST['opinion'];
+    $color = $_POST['color'];
 
-    $stmt = $conn->prepare("INSERT INTO user (Fullname, Email, Password, Dob, Country, Gender, Opinion) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssssss", $fullname, $email, $password, $dob, $country, $gender, $opinion);
+    $stmt = $conn->prepare("INSERT INTO user (Fullname, Email, Password, Dob, Country, Gender, Opinion, Color) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("ssssssss", $fullname, $email, $password, $dob, $country, $gender, $opinion, $color);
+
+
 
     if ($stmt->execute()) {
         echo "<script>
@@ -177,6 +191,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <input type="hidden" name="country" value="<?= $country ?>">
                 <input type="hidden" name="gender" value="<?= $gender ?>">
                 <input type="hidden" name="opinion" value="<?= $opinion ?>">
+                <input type="hidden" name="color" value="<?= $color ?>">
+
 
                 <button type="submit" name="confirm" class="confirm-btn">Confirm</button>
             </form>

@@ -1,5 +1,7 @@
 <?php
 // showAqi.php
+session_start();
+
 if (!isset($_POST['cities']) || count($_POST['cities']) < 1 || count($_POST['cities']) > 10) {
     die("Error: You must select between 1 and 10 cities.");
 }
@@ -11,15 +13,24 @@ if ($connection->connect_error) {
     die("Connection failed: " . $connection->connect_error);
 }
 
+// Get user's background color from database using session email
+$userEmail = $_SESSION['email'] ?? null;
+$bgColor = "#ffffff"; // Default color
+
+if ($userEmail) {
+    $stmt = $connection->prepare("SELECT color FROM user WHERE Email = ?");
+    $stmt->bind_param("s", $userEmail);
+    $stmt->execute();
+    $stmt->bind_result($dbColor);
+    if ($stmt->fetch() && !empty($dbColor)) {
+        $bgColor = htmlspecialchars($dbColor);
+    }
+    $stmt->close();
+}
+
 $ids = implode(",", array_map('intval', $selectedIds));
 $query = "SELECT city, country, aqi FROM info WHERE id IN ($ids)";
 $result = $connection->query($query);
-
-// Set background color from cookie
-$bgColor = "#ffffff"; // Default
-if (isset($_COOKIE['favColor'])) {
-    $bgColor = htmlspecialchars($_COOKIE['favColor']);
-}
 ?>
 
 <!DOCTYPE html>
