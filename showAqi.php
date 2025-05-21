@@ -146,5 +146,35 @@ $result = $connection->query($query);
         }
     </script>
 
+<footer style="margin-top: 60px; background: #006266; padding: 30px 20px; text-align: center; border-top: 2px solid #b0bec5;">
+        <h2 style="color: black;margin-left:40px; margin-bottom: 20px;">This system is developed by</h2>
+        <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
+
+        <div style="max-width: 220px;">
+                <img src="./assets/shan.jpeg" alt="Tridib Sarkar" style="width: 100px; height: 100px; border-radius: 50%; border: 3px solid #0288d1;">
+                <p style="margin: 10px 0 0; font-weight: bold; color: white;">NAZMUS SAKIB SHAN
+                </p>
+                <p style="margin: 4px 0; color: white;">Course Instructor</p>
+                <p style="margin: 4px 0; color: white;">AIUB</p>
+            </div>
+
+            <div style="max-width: 220px;">
+                <img src="./assets/mehedi.png" alt="Mehedi Hasan Polash" style="width: 100px; height: 100px; border-radius: 50%; border: 3px solid #0288d1;">
+                <p style="margin: 10px 0 0; font-weight: bold; color: white;">Md Mehedi Hasan Polash</p>
+                <p style="margin: 4px 0; color: white;">ID: 22-46566-1</p>
+                <p style="margin: 4px 0; color: white;">AIUB</p>
+            </div>
+            <div style="max-width: 220px;">
+                <img src="./assets/tridib.png" alt="Tridib Sarkar" style="width: 100px; height: 100px; border-radius: 50%; border: 3px solid #0288d1;">
+                <p style="margin: 10px 0 0; font-weight: bold; color: white;">Tridib Sarkar</p>
+                <p style="margin: 4px 0; color: white;">ID: 22-46444-1</p>
+                <p style="margin: 4px 0; color: white;">AIUB</p>
+            </div>
+        </div>
+    </footer>
+
+
+    
+
 </body>
 </html>
