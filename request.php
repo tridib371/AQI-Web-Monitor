@@ -17,7 +17,7 @@ $result = $connection->query($query);
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(to right, #e0f7fa, #e1bee7);
+            background: linear-gradient(rgb(46, 46, 44));
             margin: 0;
             padding: 0;
         }
@@ -78,7 +78,7 @@ $result = $connection->query($query);
         }
 
         .city-item {
-            background: linear-gradient(to right, #ffccbc, #ffe0b2);
+            background: linear-gradient(to right,rgb(88, 105, 235),rgb(111, 120, 152));
             padding: 10px 15px;
             margin: 10px 0;
             border-radius: 8px;
@@ -91,14 +91,14 @@ $result = $connection->query($query);
 
         input[type="checkbox"] {
             transform: scale(1.3);
-            accent-color: #f57c00;
+            accent-color:rgb(40, 18, 36);
         }
 
         input[type="submit"] {
-            background: linear-gradient(to right, #26c6da, #7e57c2);
+            background: linear-gradient(rgb(120, 76, 195));
             border: none;
             color: white;
-            padding: 12px 20px;
+            padding: 6px 10px;
             border-radius: 8px;
             font-size: 16px;
             cursor: pointer;
@@ -108,7 +108,7 @@ $result = $connection->query($query);
         }
 
         input[type="submit"]:hover {
-            background: linear-gradient(to right, #00acc1, #5e35b1);
+            background: linear-gradient(rgb(36, 199, 47));
         }
     </style>
 </head>

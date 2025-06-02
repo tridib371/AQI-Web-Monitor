@@ -92,7 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 align-items: center;
                 height: 100vh;
                 margin: 0;
-                background: #474787;
+                background:rgb(72, 132, 201);
                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
                 color: #333;
             }
